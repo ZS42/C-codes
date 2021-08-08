@@ -1,0 +1,39 @@
+#include<unistd.h>
+
+void ft_space(int i, int k)
+{
+    if(i != '7' || k != '9')
+    {
+        write(1, ", ", 2);
+    }
+}
+
+void ft_print_comb(void)
+{
+    char i = '0';
+    char j;
+    char k;
+    while(i <= '7')
+    {
+        j = i+1;
+        while(j <= '8' && j > i)
+        {
+            k = j+1;
+            while(k <= '9' && k != j)
+            {
+                write(1, &i, 1);
+                write(1, &j, 1);
+                write(1, &k, 1);
+                ft_space(i,k);
+                k++;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+int main(void)
+{
+    ft_print_comb();
+}
